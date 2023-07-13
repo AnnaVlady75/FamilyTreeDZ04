@@ -14,7 +14,7 @@ public class Main {
         //FamilyTree tree = new FamilyTree();
         //fileHandler.saveInfo(tree,"src/main/java/familyTree/Write/tree.out");
         //fileHandler.readInfo("src/main/java/familyTree/Write/tree.out");
-        FamilyTree familyTree = new FamilyTree<>();
+        FamilyTree<Human> familyTree = new FamilyTree<>();
         Human alex = new Human(01,"Алексей", Gender.Male, LocalDate.of(1965, 12, 4));
         Human sveta =  new Human(02, "Светлана", Gender.Female, LocalDate.of(1967, 5, 29));
         familyTree.addHuman(alex);
