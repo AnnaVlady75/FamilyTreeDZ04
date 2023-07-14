@@ -68,12 +68,12 @@ public class FamilyTree<E extends FamilyItem<E>> implements Serializable, Iterab
     }
     @Override
     public Iterator<E> iterator() {
-        return new HumanIterator(humanList);
+        return new HumanIterator<>(humanList);
     }
     public void sortByName(){
-        humanList.sort(new HumanComparatorByName());
+        humanList.sort(new HumanComparatorByName<>());
     }
     public void sortByBirthDate(){
-        humanList.sort(new HumanComparatorByBirthDate());
+        humanList.sort(new HumanComparatorByBirthDate<>());
     }
 }
