@@ -27,8 +27,6 @@ public class ConsoleUI implements View{
             System.out.println(menu.menu());
             System.out.println("Введите номер запроса: ");
             String choice = scanner.nextLine();
-//            if(choice> )
-// проверка такой команды нет
             int numChoice = Integer.parseInt(choice);
             menu.execute(numChoice);
             }
