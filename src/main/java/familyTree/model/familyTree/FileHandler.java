@@ -1,4 +1,4 @@
-package familyTree.familyTree;
+package familyTree.model.familyTree;
 
 import familyTree.Write.Writable;
 
