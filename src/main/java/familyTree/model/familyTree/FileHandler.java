@@ -1,6 +1,6 @@
 package familyTree.model.familyTree;
 
-import familyTree.Write.Writable;
+import familyTree.model.Write.Writable;
 
 import java.io.*;
 

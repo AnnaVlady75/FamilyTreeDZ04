@@ -1,54 +1,53 @@
 package familyTree.view;
 
 import familyTree.model.human.Gender;
+import familyTree.presenter.Presenter;
 //import familyTree.presenter.Presenter;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
-//public class ConsoleUI implements View{
-//    private Presenter presenter;
-//    private Scanner scanner;
-//
-//    public ConsoleUI() {
-//        presenter = new Presenter(this);
-//        scanner = new Scanner(System.in);
-//    }
-//
-//    @Override
-//    public void start() {
-//        System.out.println("Добрый день!");
-//        while (true){
-//            System.out.println("выберите действие  \n"+
-//                    "1. Вывести сем дерево "+
-//                    "2. Отсортировать по имени \n"+
-//                    "3. Отсортировать по возрасту\n"+
-//                    "4. Завершить работу");
-//            String choice = scanner.nextLine();
-//            switch (choice){
-//                case "1.":
-//                    addHuman();
-//                    break;
-//                case "2.":
-//                    break;
-//                case "3.":
-//                    break;
-//                case "4.":
-//                    break;
-//            }
-//        }
-//
-//    }
-//
-//    private void addHuman() {
-//        System.out.println("Введите имя");
-//        String name = scanner.nextLine();
-//        presenter.addHuman(name);
-//    }
-//
-//    @Override
-//    public void printAnswer(String text) {
-//        System.out.println(text);
-//
-//    }
-//}
+public class ConsoleUI implements View{
+    private Presenter presenter;
+    private Scanner scanner;
+    private boolean work;
+    private MainMenu menu;
+
+    public ConsoleUI() {
+        presenter = new Presenter(this);
+        scanner = new Scanner(System.in);
+        work = true;
+        menu = new MainMenu(this);
+    }
+
+    @Override
+    public void start() {
+        System.out.println("Добро пожаловать!");
+        while (work){
+            System.out.println(menu.menu());
+            System.out.println("Введите номер запроса: ");
+            String choice = scanner.nextLine();
+//            if(choice> )
+// проверка такой команды нет
+            int numChoice = Integer.parseInt(choice);
+            menu.execute(numChoice);
+            }
+        }
+    @Override
+    public void printAnswer(String text) {
+        System.out.println(text);
+    }
+    public void finish() {
+        System.out.println("До свидания!");
+        work = false;
+    }
+    public void sortByAge() {
+        presenter.sortByAge();
+    }
+    public void sortByName() {
+        presenter.sortByName();
+    }
+    public void getFamilyTree() {
+        presenter.getFamilyTree();
+    }
+}
