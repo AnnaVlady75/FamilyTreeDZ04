@@ -7,7 +7,7 @@ import familyTree.presenter.Presenter;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class ConsoleUI implements View{
+public class ConsoleUI implements View {
     private Presenter presenter;
     private Scanner scanner;
     private boolean work;
@@ -23,30 +23,34 @@ public class ConsoleUI implements View{
     @Override
     public void start() {
         System.out.println("Добро пожаловать!");
-        while (work){
+        while (work) {
             System.out.println(menu.menu());
             System.out.println("Введите номер запроса: ");
             String choice = scanner.nextLine();
-//            if(choice> )
-// проверка такой команды нет
             int numChoice = Integer.parseInt(choice);
-            menu.execute(numChoice);
-            }
+            if (numChoice > menu.getSize() || numChoice < 0) {
+                System.out.println("Такой команды нет, попробуйте снова");
+            } else menu.execute(numChoice);
         }
+    }
     @Override
     public void printAnswer(String text) {
         System.out.println(text);
     }
+
     public void finish() {
         System.out.println("До свидания!");
         work = false;
     }
+
     public void sortByAge() {
         presenter.sortByAge();
     }
+
     public void sortByName() {
         presenter.sortByName();
     }
+
     public void getFamilyTree() {
         presenter.getFamilyTree();
     }
