@@ -1,13 +1,19 @@
 package familyTree.model.service;
 
+import familyTree.model.Write.Writable;
 import familyTree.model.familyTree.FamilyTree;
+import familyTree.model.familyTree.FileHandler;
 import familyTree.model.human.Gender;
 import familyTree.model.human.Human;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-public class ServiceHuman {
+public class ServiceHuman implements Serializable {
     private FamilyTree<Human> tree;
+    private FileHandler fileHandler;
+
     public ServiceHuman() {
+        fileHandler = new FileHandler();
         tree = new FamilyTree<>();
         Human alex = new Human(01,"Алексей", Gender.Male, LocalDate.of(1965, 12, 4));
         Human sveta =  new Human(02, "Светлана", Gender.Female, LocalDate.of(1967, 5, 29));
@@ -41,6 +47,13 @@ public class ServiceHuman {
     }
     public void sortByBirthDate(){
         tree.sortByBirthDate();
+    }
+
+    public boolean saveInfo() {
+        return fileHandler.saveInfo(tree,"src/main/java/familyTree/model/Write/tree.out");
+    }
+    public Object readInfo() {
+        return fileHandler.readInfo("src/main/java/familyTree/model/Write/tree.out");
     }
 }
 

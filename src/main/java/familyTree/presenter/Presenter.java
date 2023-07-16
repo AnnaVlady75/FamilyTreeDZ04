@@ -26,4 +26,12 @@ public class Presenter {
         service.sortByBirthDate();
         getFamilyTree();
     }
+
+    public void saveIntoFile() {
+        service.saveInfo();
+    }
+
+    public void readInfoFromFile() {
+        service.readInfo();
+    }
 }

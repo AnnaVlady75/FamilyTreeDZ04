@@ -37,21 +37,23 @@ public class ConsoleUI implements View {
     public void printAnswer(String text) {
         System.out.println(text);
     }
-
     public void finish() {
         System.out.println("До свидания!");
         work = false;
     }
-
     public void sortByAge() {
         presenter.sortByAge();
     }
-
     public void sortByName() {
         presenter.sortByName();
     }
-
     public void getFamilyTree() {
         presenter.getFamilyTree();
+    }
+    public void saveIntoFile(){
+        presenter.saveIntoFile();
+    }
+    public void readInfoFromFile(){
+        presenter.readInfoFromFile();
     }
 }
