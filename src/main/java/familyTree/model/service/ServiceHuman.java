@@ -1,20 +1,22 @@
 package familyTree.model.service;
 
-import familyTree.model.Write.Writable;
 import familyTree.model.familyTree.FamilyTree;
-import familyTree.model.familyTree.FileHandler;
 import familyTree.model.human.Gender;
 import familyTree.model.human.Human;
+import familyTree.model.write.Writable;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-public class ServiceHuman implements Serializable {
+public class ServiceHuman implements Serializable, Writable {
     private FamilyTree<Human> tree;
-    private FileHandler fileHandler;
+    String file;
 
     public ServiceHuman() {
-        fileHandler = new FileHandler();
-        tree = new FamilyTree<>();
+        tree = testTree();
+        file = "src/main/java/familyTree/model/write/tree.out";
+    }
+    static FamilyTree<Human> testTree() {
+        FamilyTree<Human> tree = new FamilyTree<>();
         Human alex = new Human(01,"Алексей", Gender.Male, LocalDate.of(1965, 12, 4));
         Human sveta =  new Human(02, "Светлана", Gender.Female, LocalDate.of(1967, 5, 29));
         tree.addHuman(alex);
@@ -28,7 +30,9 @@ public class ServiceHuman implements Serializable {
         Human irina = new Human(05, "Ирина", Gender.Female, LocalDate.of(1944, 7, 20));
         tree.addHuman( irina);
         irina.addChild(sveta);
+        return tree;
     }
+
     public String getHumanInfo(){
         StringBuilder sb = new StringBuilder();
         sb.append("Семейное дерево: \n");
@@ -48,12 +52,13 @@ public class ServiceHuman implements Serializable {
     public void sortByBirthDate(){
         tree.sortByBirthDate();
     }
-
-    public boolean saveInfo() {
-        return fileHandler.saveInfo(tree,"src/main/java/familyTree/model/Write/tree.out");
+    @Override
+    public boolean saveInfo(Serializable serializable,  String file) {
+        return fileHandler.saveInfo(tree,file);
     }
-    public Object readInfo() {
-        return fileHandler.readInfo("src/main/java/familyTree/model/Write/tree.out");
+    @Override
+    public Object readInfo(String file) {
+        return fileHandler.readInfo(file);
     }
 }
 
