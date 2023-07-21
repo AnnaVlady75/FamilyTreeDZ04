@@ -5,7 +5,10 @@ import familyTree.model.write.Writable;
 import java.io.*;
 
 public class FileHandler implements Writable {
-
+    String file = "src/main/java/familyTree/model/write/tree.out";
+    public String getFile() {
+        return file;
+    }
     @Override
     public boolean saveInfo(Serializable serializable, String file) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file))) {

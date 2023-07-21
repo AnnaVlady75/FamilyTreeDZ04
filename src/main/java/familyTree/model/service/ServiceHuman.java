@@ -7,13 +7,12 @@ import familyTree.model.write.Writable;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-public class ServiceHuman implements Serializable, Writable {
+public class ServiceHuman implements Writable {
     private FamilyTree<Human> tree;
     String file;
 
     public ServiceHuman() {
         tree = testTree();
-        file = "src/main/java/familyTree/model/write/tree.out";
     }
     static FamilyTree<Human> testTree() {
         FamilyTree<Human> tree = new FamilyTree<>();
@@ -56,9 +55,11 @@ public class ServiceHuman implements Serializable, Writable {
     public boolean saveInfo(Serializable serializable,  String file) {
         return fileHandler.saveInfo(tree,file);
     }
-    @Override
-    public Object readInfo(String file) {
-        return fileHandler.readInfo(file);
-    }
+//    @Override
+//    public Object readInfo(String file) {
+//        return fileHandler.readInfo(file);
+//    }
+
 }
+
 

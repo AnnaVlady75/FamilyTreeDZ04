@@ -28,6 +28,7 @@ public class Presenter {
     }
 
     public void saveIntoFile() {
+        String file = new String();
         service.saveInfo();
     }
 
