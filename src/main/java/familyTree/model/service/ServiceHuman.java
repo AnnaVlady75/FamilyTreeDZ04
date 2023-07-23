@@ -3,13 +3,10 @@ package familyTree.model.service;
 import familyTree.model.familyTree.FamilyTree;
 import familyTree.model.human.Gender;
 import familyTree.model.human.Human;
-import familyTree.model.write.Writable;
 
-import java.io.Serializable;
 import java.time.LocalDate;
-public class ServiceHuman implements Writable {
+public class ServiceHuman extends MainFileHandler {
     private FamilyTree<Human> tree;
-    String file;
 
     public ServiceHuman() {
         tree = testTree();
@@ -51,15 +48,14 @@ public class ServiceHuman implements Writable {
     public void sortByBirthDate(){
         tree.sortByBirthDate();
     }
-    @Override
-    public boolean saveInfo(Serializable serializable,  String file) {
+
+    public boolean saveInfo() {
         return fileHandler.saveInfo(tree,file);
     }
-//    @Override
-//    public Object readInfo(String file) {
-//        return fileHandler.readInfo(file);
-//    }
 
+    public Object readInfo() {
+        return fileHandler.readInfo(file);
+    }
 }
 
 

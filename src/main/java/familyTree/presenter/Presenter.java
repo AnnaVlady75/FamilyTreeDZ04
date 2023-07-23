@@ -5,7 +5,9 @@ import familyTree.model.familyTree.FamilyTree;
 import familyTree.model.service.ServiceHuman;
 import familyTree.view.View;
 
-public class Presenter {
+import java.io.Serializable;
+
+public class Presenter implements Serializable {
     private View view;
     private ServiceHuman service;
 
@@ -28,7 +30,6 @@ public class Presenter {
     }
 
     public void saveIntoFile() {
-        String file = new String();
         service.saveInfo();
     }
 

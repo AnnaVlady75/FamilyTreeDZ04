@@ -1,15 +1,9 @@
 package familyTree.model.write;
 
-import familyTree.model.write.Writable;
-
 import java.io.*;
 
-public class FileHandler implements Writable {
-    String file = "src/main/java/familyTree/model/write/tree.out";
-    public String getFile() {
-        return file;
-    }
-    @Override
+public class FileHandler implements Writable{
+
     public boolean saveInfo(Serializable serializable, String file) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file))) {
             objectOutputStream.writeObject(serializable);
@@ -20,7 +14,6 @@ public class FileHandler implements Writable {
         }
     }
 
-    @Override
     public Object readInfo(String file) {
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file))){
             return objectInputStream.readObject();

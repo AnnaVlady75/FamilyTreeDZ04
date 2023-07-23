@@ -2,8 +2,9 @@ package familyTree.model.write;
 
 import java.io.Serializable;
 
-public interface Writable {
-    FileHandler fileHandler = new FileHandler();
+public interface Writable extends Serializable {
+
     boolean saveInfo(Serializable serializable,String file);
     Object readInfo(String file);
+
 }
