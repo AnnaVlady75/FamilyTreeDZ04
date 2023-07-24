@@ -11,6 +11,7 @@ public class ConsoleUI implements View {
     private Presenter presenter;
     private Scanner scanner;
     private boolean work;
+    private Greeting greeting;
     private MainMenu menu;
 
     public ConsoleUI() {
@@ -18,11 +19,12 @@ public class ConsoleUI implements View {
         scanner = new Scanner(System.in);
         work = true;
         menu = new MainMenu(this);
+        greeting = new Greeting();
     }
 
     @Override
     public void start() {
-        System.out.println("Добро пожаловать!");
+        System.out.println(greeting.greeting);
         while (work) {
             System.out.println(menu.menu());
             System.out.println("Введите номер запроса: ");

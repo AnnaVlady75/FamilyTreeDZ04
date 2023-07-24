@@ -7,7 +7,6 @@ import familyTree.model.human.Human;
 import java.time.LocalDate;
 public class ServiceHuman extends MainFileHandler {
     private FamilyTree<Human> tree;
-
     public ServiceHuman() {
         tree = testTree();
     }
@@ -29,7 +28,6 @@ public class ServiceHuman extends MainFileHandler {
         irina.addChild(sveta);
         return tree;
     }
-
     public String getHumanInfo(){
         StringBuilder sb = new StringBuilder();
         sb.append("Семейное дерево: \n");
@@ -53,7 +51,6 @@ public class ServiceHuman extends MainFileHandler {
     public boolean saveInfo() {
         return fileHandler.saveInfo(tree,file);
     }
-
     public void readInfo() {
         tree = (FamilyTree<Human>) fileHandler.readInfo(file);
     }
