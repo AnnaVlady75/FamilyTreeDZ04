@@ -11,8 +11,9 @@ public class ServiceHuman extends MainFileHandler {
     public ServiceHuman() {
         tree = testTree();
     }
-    static FamilyTree<Human> testTree() {
-        FamilyTree<Human> tree = new FamilyTree<>();
+
+    FamilyTree<Human> testTree() {
+        tree = new FamilyTree<>();
         Human alex = new Human(01,"Алексей", Gender.Male, LocalDate.of(1965, 12, 4));
         Human sveta =  new Human(02, "Светлана", Gender.Female, LocalDate.of(1967, 5, 29));
         tree.addHuman(alex);
@@ -53,8 +54,8 @@ public class ServiceHuman extends MainFileHandler {
         return fileHandler.saveInfo(tree,file);
     }
 
-    public Object readInfo() {
-        return fileHandler.readInfo(file);
+    public void readInfo() {
+        tree = (FamilyTree<Human>) fileHandler.readInfo(file);
     }
 }
 
